@@ -1,0 +1,55 @@
+# This is Git's per-user configuration file.
+
+[user]
+# Please adapt and uncomment the following lines:
+#	name = 
+#	email = 
+
+[diff]
+    tool = vsdiffmerge
+[difftool]
+    prompt = true
+[difftool "vsdiffmerge"]
+    cmd = \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+    keepBackup = false
+    trustexistcode = true
+
+[merge]
+    tool = vsdiffmerge
+[mergetool]
+    prompt = true
+[mergetool "vsdiffmerge"]
+    cmd = \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m
+    keepBackup = false
+    trustexistcode = true
+
+[alias]
+    aa = add -A #add all
+    awd = add . #add without deleted
+    awn = add -u #add without new
+    
+    co = commit -m
+    
+    fo = fetch origin
+    st = status
+    psom = push origin master
+    plom = pull origin master
+    
+    ao = remote add original #add original
+    uf = ! git fetch original && git rebase original/master #update fork
+
+    nb = checkout -b #new branch
+    db = checkout -d #delete branch
+
+    dw = diff #diff working
+    ds = diff --staged #diff stage
+
+    ma = merge --abort #merge abort
+    rc = rebase --continue #rebase continue after merge resolution
+
+    us = reset #undo stage
+    uh = git reset HEAD~ #undo head
+
+#global gitignore
+#[core]
+#	excludesfile = #path to global .gitignore file#
